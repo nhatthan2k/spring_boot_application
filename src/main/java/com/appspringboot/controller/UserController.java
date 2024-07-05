@@ -1,5 +1,6 @@
 package com.appspringboot.controller;
 
+import com.appspringboot.configuration.Translator;
 import com.appspringboot.dto.request.UserRequestDTO;
 import com.appspringboot.dto.response.ResponseData;
 import com.appspringboot.exception.ResourceNotFoundException;
@@ -27,7 +28,7 @@ public class UserController {
     public ResponseData<Integer> addUser(@RequestBody @Valid UserRequestDTO user) {
         try {
             userService.addUser(user);
-            return new ResponseData<>(HttpStatus.CREATED.value(), "User added successfully", 1);
+            return new ResponseData<>(HttpStatus.CREATED.value(), Translator.toLocale("user.add.success"), 1);
         } catch (ResourceNotFoundException e) {
             return new ResponseData<>(HttpStatus.BAD_REQUEST.value(), "not found name");
         }
