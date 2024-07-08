@@ -1,10 +1,5 @@
 spring:
   application:
-    name: tay-java\
-open:
-  api:
-    title: API document
-    version: v1.0.0
-    description: Mo ta API service
-    serverUrl: localhost:8080
-    serverName: server test
+    name: AppSpringBoot
+  profiles:
+    active: @spring.profiles.active@
